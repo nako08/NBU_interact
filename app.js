@@ -26,13 +26,13 @@ const contract = new web3.eth.Contract(abi, address)
 const adress_to_check = 'xxx'
 
 // Obtenemos los "nonces" (chunks)
-contract.methods.vestingNonces(adress_to_check, ).call((err, nonces) => { 
+contract.methods.vestingNonces(adress_to_check).call((err, nonces) => { 
 	console.log('Consultando la dirección: ' + adress_to_check)
 	console.log('Chunks: ' + nonces)
 
 	// Consultamos vestingInfo para cada chunk y mostramos el resultado
 	for (i = nonces; i > 0; i--) {
-		contract.methods.vestingInfo(adress_to_check, i).call((err, vestinInfoData) => { console.log(vestinInfoData) }) 
+		contract.methods.vestingInfo(adress_to_check, i).call((err, vestingInfoData) => { console.log(vestingInfoData) }) 
 	}
 	
 })
